@@ -16,8 +16,8 @@ VALUES	(1,'Saulo','saulo@gmail.com','saulo123'),
 		(2,'ADM','adm@gmail.com','adm123')
 GO
 
-INSERT INTO PROJETO (idUsuario,idTema,titulo)
-VALUES	(1,1,'Controle de estoque'),
-		(2,2,'Listagem de Personagens'),
-		(1,3,'Gufi')
+INSERT INTO PROJETO (idUsuario,idTema,titulo,descricao)
+VALUES	(1,1,'Controle de estoque','Organização de estoques corporativos'),
+		(2,2,'Listagem de Personagens','Listagem de personagens de HQs famosas'),
+		(1,3,'Gufi','Administração de eventos em geral')
 GO

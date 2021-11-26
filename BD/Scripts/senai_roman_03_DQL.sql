@@ -1,4 +1,5 @@
 USE ROMAN_GEN
+GO
 
 SELECT U.nome as 'Nome de usuário', P.titulo 'Titulo Projeto', T.titulo 'Tema' FROM PROJETO P
 LEFT JOIN USUARIO U
