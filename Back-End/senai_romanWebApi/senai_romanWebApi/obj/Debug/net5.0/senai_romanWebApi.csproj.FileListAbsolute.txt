@@ -65,3 +65,5 @@ C:\Users\43017102807\Desktop\Roman\Back-End\senai_romanWebApi\senai_romanWebApi\
 C:\Users\43017102807\Desktop\Roman\Back-End\senai_romanWebApi\senai_romanWebApi\obj\Debug\net5.0\ref\senai_romanWebApi.dll
 C:\Users\43017102807\Desktop\Roman\Back-End\senai_romanWebApi\senai_romanWebApi\obj\Debug\net5.0\senai_romanWebApi.pdb
 C:\Users\43017102807\Desktop\Roman\Back-End\senai_romanWebApi\senai_romanWebApi\obj\Debug\net5.0\senai_romanWebApi.genruntimeconfig.cache
+C:\Users\43017102807\Desktop\Roman\Back-End\senai_romanWebApi\senai_romanWebApi\bin\Debug\net5.0\senai_romanWebApi.xml
+C:\Users\43017102807\Desktop\Roman\Back-End\senai_romanWebApi\senai_romanWebApi\obj\Debug\net5.0\senai_romanWebApi.xml
