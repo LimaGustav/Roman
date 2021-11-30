@@ -13,6 +13,9 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import api from '../services/api'
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+
 
 export default function Login(){
 
@@ -32,6 +35,7 @@ export default function Login(){
     
             if (resposta.status == 200) {
                 console.warn(token)
+                navigate('Main')
             }
             
         } catch (error) {
@@ -63,7 +67,9 @@ export default function Login(){
                         keyboardType="email-address"
                         onChangeText={(campo) => setEmail(campo)}
                         value={email}
-                        style={styles.inputLogin}>
+                        placeholderTextColor='rgba(9, 9, 9, 0.5)'
+                        style={styles.inputLogin}
+                        >
                         </TextInput>
 
                         <TextInput
@@ -71,6 +77,7 @@ export default function Login(){
                         keyboardType="default"
                         onChangeText={(campo) => setSenha(campo)}
                         value={senha}
+                        placeholderTextColor='rgba(9, 9, 9, 0.5)'
                         style={styles.inputLogin}
                         secureTextEntry={true}>
                         </TextInput>
@@ -123,8 +130,6 @@ const styles = StyleSheet.create({
 
         backgroundColor: 'rgba(255, 255, 255, 0.85)',
         borderRadius: 5,
-
-        placeholderTextColor: 'rgba(9, 9, 9, 0.5)'
     },
 
     btnLogin: {
