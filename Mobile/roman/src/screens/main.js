@@ -24,16 +24,16 @@ export default class Main extends Component {
               if (route.name === 'Projetos') {
                 return (
                   <Image
-                    source={require('../../assets/images/projeto.Logo.png')}
-                    style={styles.tabBarIcon}
+                    source={require('../../assets/images/projetoLogo.png')}
+                    // style={styles.tabBarIcon}
                   />
                 )
               }
               if (route.name === 'Cadastrar') {
                 return (
                   <Image
-                    source={require('../../assets/images/novoPLogo')}
-                    style={styles.tabBarIcon}
+                    source={require('../../assets/images/novoPLogo.png')}
+                    // style={styles.tabBarIcon}
                   />
                 )
               }
