@@ -16,20 +16,26 @@ import api from '../services/api'
 
 export default function Login(){
 
-    const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
+    const [email, setEmail] = useState('adm@gmail.com')
+    const [senha, setSenha] = useState('adm123')
 
     realizarLogin = async () => {
-        const respota = await api.post('/login', {
-            email: email,
-            senha: senha
-        })
-
-        const token = resposta.data.token;
-
-        await AsyncStorage.setItem('userToken', token);
-
-        if (resposta.status == 200) {
+        try {
+            const resposta = await api.post('/login', {
+                email: email,
+                senha: senha
+            })
+    
+            const token = resposta.data.token;
+    
+            await AsyncStorage.setItem('userToken', token);
+    
+            if (resposta.status == 200) {
+                console.warn(token)
+            }
+            
+        } catch (error) {
+            console.warn('aqui')
         }
     }
 
@@ -39,23 +45,48 @@ export default function Login(){
           style={StyleSheet.absoluteFillObject}
         >
 
-            <TextInput
-            placeholder="email"
-            placeholderTextColor="#FFF"
-            keyboardType="email-address"
-            onChangeText={(campo) => setEmail(campo)}
-            value={email}>
+            <View style={styles.loginContainer}>
+                <View style={styles.loginWrapper}>
 
-            </TextInput>
+                    <Image 
+                    source={require('../../assets/images/logoLogin.png')}
+                    style={styles.imgLogin}
+                    />
 
-            <TextInput
-            placeholder="password"
-            placeholderTextColor="#FFF"
-            keyboardType="default"
-            onChangeText={(campo) => setSenha(campo)}
-            value={senha}>
+                    {/* <Text>Roman</Text>
 
-            </TextInput>
+                    <Text>Escola de tecnologia</Text> */}
+
+                    <View style={styles.inputContainer}>
+                        <TextInput
+                        placeholder="email"
+                        keyboardType="email-address"
+                        onChangeText={(campo) => setEmail(campo)}
+                        value={email}
+                        style={styles.inputLogin}>
+                        </TextInput>
+
+                        <TextInput
+                        placeholder="password"
+                        keyboardType="default"
+                        onChangeText={(campo) => setSenha(campo)}
+                        value={senha}
+                        style={styles.inputLogin}
+                        secureTextEntry={true}>
+                        </TextInput>
+                        
+                        <TouchableOpacity
+                        style={styles.btnLogin}
+                        onPress={realizarLogin}
+                        >
+                            <Text style={styles.btnLoginText}>
+                                Login
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+
 
         </ImageBackground>
     )
@@ -63,6 +94,54 @@ export default function Login(){
 }
 
 const styles = StyleSheet.create({
-    
+    loginContainer : {
+        ...StyleSheet.absoluteFillObject,
+        justifyContent: 'center'
+    },
+
+    loginWrapper: {
+        width: '100%',
+        height: 450,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 80
+    },
+
+    imgLogin: {
+        height: 256,
+        width: 218,
+    },
+
+    inputContainer: {
+        height: 160,
+        justifyContent: 'space-between'
+    },
+
+    inputLogin: {
+        width: 229,
+        height: 42,
+
+        backgroundColor: 'rgba(255, 255, 255, 0.85)',
+        borderRadius: 5,
+
+        placeholderTextColor: 'rgba(9, 9, 9, 0.5)'
+    },
+
+    btnLogin: {
+        width: 229,
+        height: 42,
+
+        backgroundColor: '#B7905F',
+        borderRadius: 5,
+        alignItems: 'center',
+        justifyContent: 'center',
+
+        marginTop: 10
+    },
+
+    btnLoginText: {
+        color: '#fff',
+        textTransform: 'uppercase'
+    }
 })
 
