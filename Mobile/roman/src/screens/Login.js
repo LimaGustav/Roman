@@ -18,8 +18,8 @@ import { useNavigation } from '@react-navigation/core';
 
 export default function Login(){
 
-    const [email, setEmail] = useState('adm@gmail.com')
-    const [senha, setSenha] = useState('adm123')
+    const [email, setEmail] = useState('')
+    const [senha, setSenha] = useState('')
     const navigation = new useNavigation();
 
     realizarLogin = async () => {

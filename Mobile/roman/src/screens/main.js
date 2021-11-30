@@ -1,51 +1,65 @@
 import React, { Compon, Component } from 'react';
-import { FlatList, Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Image, ImageBackground, StatusBar, StyleSheet, Text, View } from 'react-native';
 
 import api from './services/api'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import Projetos from './ListaProjeto'
+
+const bottomTab = createBottomTabNavigator();
+
 
 export default class Main extends Component {
-    render() {
-        return (
+  render() {
+    return (
+      <View>
+        <StatusBar
+          hidden={false} />
 
-            <View style={StyleSheet.main}>
+        <bottomTab.Navigator
+          initialRouteName='Projetos'
 
-                <bottomTab.Navigator
-                    initialRouteName='Projetos'
+          screenOptions={({ route }) => ({
+            tabBarIcon: () => {
+              if (route.name === 'Projetos') {
+                return (
+                  <Image
+                    source={require('../../assets/images/projeto.Logo.png')}
+                    style={styles.tabBarIcon}
+                  />
+                )
+              }
+              if (route.name === 'Cadastrar') {
+                return (
+                  <Image
+                    source={require('../../assets/images/novoPLogo')}
+                    style={styles.tabBarIcon}
+                  />
+                )
+              }
+              // if (route.name === 'Perfil') {
+              //   return (
+              //     <Image
+              //       source={require('../../assets/img/profile.png')}
+              //       style={styles.tabBarIcon}
+              //     />
+              //   )
+              // }
+            },
 
-                    screenOptions={ ({ route }) => ({
-                        tabBarIcon: () => {
-                          if (route.name === 'Novo Projeto') {
-                            return(
-                              <Image 
-                                source={require('../../assets/images/')}
-                                style={styles.tabBarIcon}
-                              />
-                            )
-                          }
-                          if (route.name === 'Eventos') {
-                            return(
-                              <Image 
-                                source={require('../../assets/img/calendar.png')}
-                                style={styles.tabBarIcon}
-                              />
-                            )
-                          }
-                          if (route.name === 'Perfil') {
-                            return(
-                              <Image 
-                                source={require('../../assets/img/profile.png')}
-                                style={styles.tabBarIcon}
-                              />
-                            )
-                          }
-                        },
+            headerShadow: false,
+            tabBarShowLabel: false,
+            tabBarActiveBackgroundColor: '#B727FF',
+            tabBarInactiveBackgroundColor: '#DD99FF',
+            tabBarStyle: { height: 50 }
+          }
+          )}
           
-                />
+          />
 
-            </View>
-
-        )
-    }
+          <bottomTab.Screen name='Projetos' component={Projetos}/>
+      </View>
+    )
+  }
 }
+
