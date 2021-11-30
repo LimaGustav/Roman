@@ -11,13 +11,15 @@ import {
 
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/core';
 
 import api from '../services/api'
 
 export default function Login(){
 
-    const [email, setEmail] = useState('adm@gmail.com')
-    const [senha, setSenha] = useState('adm123')
+    const [email, setEmail] = useState('adm@gmail.com');
+    const [senha, setSenha] = useState('adm123');
+    const navigation = new useNavigation();
 
     realizarLogin = async () => {
         try {
@@ -26,16 +28,17 @@ export default function Login(){
                 senha: senha
             })
     
-            const token = resposta.data.token;
-    
-            await AsyncStorage.setItem('userToken', token);
-    
             if (resposta.status == 200) {
-                console.warn(token)
+                // console.warn(token)
+                // Redireciona
+                const token = resposta.data.token;
+    
+                await AsyncStorage.setItem('userToken', token);
+                await navigation.navigate('Main')
             }
             
         } catch (error) {
-            console.warn('aqui')
+            console.warn(error)
         }
     }
 
