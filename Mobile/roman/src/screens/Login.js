@@ -13,14 +13,14 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import api from '../services/api'
-import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/core';
 
 
 export default function Login(){
 
     const [email, setEmail] = useState('adm@gmail.com')
     const [senha, setSenha] = useState('adm123')
+    const navigation = new useNavigation();
 
     realizarLogin = async () => {
         try {
@@ -35,7 +35,7 @@ export default function Login(){
     
             if (resposta.status == 200) {
                 console.warn(token)
-                navigate('Main')
+                navigation.navigate('Main')
             }
             
         } catch (error) {

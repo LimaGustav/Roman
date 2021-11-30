@@ -2,10 +2,8 @@ import React, { Compon, Component } from 'react';
 import { FlatList, Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 
 import api from './services/api'
-
-import { TouchableOpacity } from 'react-native-gesture-handler';
-
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+const bottomTab = createBottomTabNavigator();
 
 export default class ListaProjeto extends Component {
     constructor(props) {
@@ -14,7 +12,6 @@ export default class ListaProjeto extends Component {
             listaProjetos: [],
         };
     }
-
 
 
     buscarProjetos = async () => {
@@ -30,29 +27,27 @@ export default class ListaProjeto extends Component {
 
 
     componentDidMount() {
-        this.buscarEventos();
+        this.buscarProjetos();
     };
-
-
 
 
     render() {
         return (
-            <View style={styles.main}>
-                {/*header*/}
-                
-                <View style={styles.mainHeader}>
-                    <Image
-                        source={require("../../assets/img/logo.png" )}  
-                        style={styles.mainHeaderImg}
-                    />
+
+            <View style={StyleSheet.main}>
+                <View>
+    
                 </View>
-                <Text>Projetos</Text>
+                <ImageBackground
+                    source={require('../../assets/images/fundoLista.png')}
+                    style={StyleSheet.absoluteFillObject}
+                >
+                    <bottomTab.Navigator 
+                    initialRouteName='Main'
+                    />
+                </ImageBackground>
             </View>
+
         )
     }
 };
-
-// const styles = StyleSheet.create{
-   
-// }

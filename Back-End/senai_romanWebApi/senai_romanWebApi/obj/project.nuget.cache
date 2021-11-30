@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "lbmRFhWhvVDcJ5Ee51vJ0dxyl7qrPG6i0zyirWqINqvcIckZmElG3nxRDY6//kIru9f9NvGJfuRi1ltyTxiiag==",
-=======
-  "dgSpecHash": "2FPbAM5Rn0u3CnTL614O0ZC2aoJScFx0CQmtrPOgDYxMSmqFp/vRN6wFrpQKaEOqPlzjXU4urKU3N+WkvefLdA==",
->>>>>>> Login
   "success": true,
   "projectFilePath": "C:\\Users\\47314899894\\Desktop\\Roman\\Back-End\\senai_romanWebApi\\senai_romanWebApi\\senai_romanWebApi.csproj",
   "expectedPackageFiles": [
@@ -149,5 +145,12 @@
     "C:\\Users\\47314899894\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\47314899894\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema ao ler o arquivo de cache C:\\Users\\47314899894\\Desktop\\Roman\\Back-End\\senai_romanWebApi\\senai_romanWebApi\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
