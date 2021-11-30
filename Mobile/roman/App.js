@@ -1,16 +1,27 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
-import ListaProjeto from './src/screens/ListaProjeto';
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const AuthStack = createStackNavigator();
+
+import Login from './src/screens/Login'
 
 export default function Stack() {
   return (
+    <NavigationContainer>
+      <StatusBar
+        hidden={true}
+      />
 
-
-
-    <ListaProjeto />
-
-  )
-
-
+      <AuthStack.Navigator
+       // initialRouteName="Login"
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <AuthStack.Screen name="Login" component={Login} />
+      </AuthStack.Navigator>
+    </NavigationContainer>
+  );
 }
