@@ -13,11 +13,16 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import api from '../services/api'
+import { useNavigation } from '@react-navigation/core';
+
+
 
 export default function Login(){
 
-    const [email, setEmail] = useState('adm@gmail.com')
-    const [senha, setSenha] = useState('adm123')
+    const [email, setEmail] = useState('saulo@gmail.com')
+    const [senha, setSenha] = useState('saulo123')
+    const navigation = new useNavigation();
+       
 
     realizarLogin = async () => {
         try {
@@ -31,11 +36,11 @@ export default function Login(){
             await AsyncStorage.setItem('userToken', token);
     
             if (resposta.status == 200) {
-                console.warn(token)
+                navigation.navigate('Main')
             }
             
         } catch (error) {
-            console.warn('aqui')
+            console.warn('erro')
         }
     }
 
@@ -63,7 +68,9 @@ export default function Login(){
                         keyboardType="email-address"
                         onChangeText={(campo) => setEmail(campo)}
                         value={email}
-                        style={styles.inputLogin}>
+                        placeholderTextColor='rgba(9, 9, 9, 0.5)'
+                        style={styles.inputLogin}
+                        >
                         </TextInput>
 
                         <TextInput
@@ -71,6 +78,7 @@ export default function Login(){
                         keyboardType="default"
                         onChangeText={(campo) => setSenha(campo)}
                         value={senha}
+                        placeholderTextColor='rgba(9, 9, 9, 0.5)'
                         style={styles.inputLogin}
                         secureTextEntry={true}>
                         </TextInput>
@@ -123,8 +131,6 @@ const styles = StyleSheet.create({
 
         backgroundColor: 'rgba(255, 255, 255, 0.85)',
         borderRadius: 5,
-
-        placeholderTextColor: 'rgba(9, 9, 9, 0.5)'
     },
 
     btnLogin: {
