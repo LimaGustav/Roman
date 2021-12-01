@@ -1,7 +1,7 @@
 import React, { Compon, Component } from 'react';
 import { FlatList, Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 
-import api from './services/api'
+import api from '../services/api'
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -19,15 +19,21 @@ export default class ListaProjeto extends Component {
     buscarProjetos = async () => {
         const token = await AsyncStorage.getItem('userToken');
 
-        const resposta = await api.get('/projetos', {
-            headers: {
-                Authorization: 'Bearer ' + token,
+        if (token != null) {
+            const resposta = await api.get('/projetos', {
+                headers: {
+                    Authorization: 'Bearer ' + token,
 
-            }
-        }).then(console.warn(resposta))
+                }
+            })
 
-        const dadosDaApi = resposta.data;
-        this.setState({ listaEventos: dadosDaApi });
+            console.warn(resposta)
+
+            const dadosDaApi = resposta.data;
+            this.setState({ listaEventos: dadosDaApi });
+        }
+
+
     };
 
 
@@ -47,15 +53,15 @@ export default class ListaProjeto extends Component {
 
                 <View style={styles.container}>
                     <Image
-                    source={require('../../assets/images/logoLoginPuro.png')}
-                    style={styles.logoProjeto}
+                        source={require('../../assets/images/logoLoginPuro.png')}
+                        style={styles.logoProjeto}
                     />
 
-                    <FlatList 
-                    contentContainerStyle={styles.mainBodyContent} 
-                    data={this.state.listaMeusEventos}
-                    keyExtractor={item => item.idEvento}
-                    renderItem={this.renderItem}/>
+                    <FlatList
+                        contentContainerStyle={styles.mainBodyContent}
+                        data={this.state.listaMeusEventos}
+                        keyExtractor={item => item.idEvento}
+                        renderItem={this.renderItem} />
 
                     <View style={styles.card}>
                         <View style={styles.tituloCardWrapper}>
@@ -80,7 +86,7 @@ export default class ListaProjeto extends Component {
     }
 };
 
-const styles = StyleSheet.create({  
+const styles = StyleSheet.create({
     container: {
         alignItems: 'center'
     },
@@ -108,16 +114,16 @@ const styles = StyleSheet.create({
     },
 
     textoCardWrapper: {
-        backgroundColor: '#fff',    
+        backgroundColor: '#fff',
         height: 100,
         borderBottomLeftRadius: 10,
         borderBottomRightRadius: 10,
         padding: 20
     },
-    
-    
+
+
     tituloTexto: {
         fontWeight: '800',
     }
-    
+
 })
