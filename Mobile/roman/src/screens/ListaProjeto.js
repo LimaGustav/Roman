@@ -27,12 +27,10 @@ export default class ListaProjeto extends Component {
                 }
             })
 
-            console.warn(resposta)
 
             const dadosDaApi = resposta.data;
-            this.setState({ listaEventos: dadosDaApi });
+            this.setState({ listaProjetos: dadosDaApi });
         }
-
 
     };
 
@@ -57,13 +55,18 @@ export default class ListaProjeto extends Component {
                         style={styles.logoProjeto}
                     />
 
-                    <FlatList
-                        contentContainerStyle={styles.mainBodyContent}
-                        data={this.state.listaMeusEventos}
-                        keyExtractor={item => item.idEvento}
-                        renderItem={this.renderItem} />
 
-                    <View style={styles.card}>
+                    <View style={styles.containerFlatList}>
+                        <FlatList
+                            contentContainerStyle={styles.mainBodyContent}
+                            data={this.state.listaProjetos}
+                            keyExtractor={item => item.idProjeto}
+                            renderItem={this.renderItem}
+                        />
+                    </View>
+
+
+                    {/* <View style={styles.card}>
                         <View style={styles.tituloCardWrapper}>
                             <Text style={styles.tituloCard}>Machine Learning</Text>
                         </View>
@@ -76,7 +79,7 @@ export default class ListaProjeto extends Component {
                             </Text>
                         </View>
 
-                    </View>
+                    </View> */}
                 </View>
 
             </ImageBackground>
@@ -84,10 +87,30 @@ export default class ListaProjeto extends Component {
 
         )
     }
+
+    renderItem = ({ item }) => (
+        <View style={styles.teste}>
+            <View style={styles.card}>
+                <View style={styles.tituloCardWrapper}>
+                    <Text style={styles.tituloCard}>{item.idTemaNavigation.titulo}</Text>
+                </View>
+                <View style={styles.textoCardWrapper}>
+                    <Text style={styles.textoCard}>
+                        <Text style={styles.tituloTexto}>
+                            {item.titulo} -
+                        </Text>
+                        {item.descricao}
+                    </Text>
+                </View>
+            </View>
+        </View>
+    )
+
 };
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         alignItems: 'center'
     },
 
@@ -96,12 +119,28 @@ const styles = StyleSheet.create({
         height: 110,
     },
 
+    containerFlatList: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+
+    teste:{
+        alignItems: 'center'
+    },
+
+    mainBodyContent: {
+        flex: 1,
+        justifyContent: 'space-around',
+    },
+
     card: {
-        width: '80%',
+        // alignItems: 'center',
+        width: '85%'
     },
 
     tituloCard: {
-        color: '#00000',
+        color: 'black',
         fontSize: 20,
         fontWeight: '600'
     },
@@ -115,10 +154,9 @@ const styles = StyleSheet.create({
 
     textoCardWrapper: {
         backgroundColor: '#fff',
-        height: 100,
         borderBottomLeftRadius: 10,
         borderBottomRightRadius: 10,
-        padding: 20
+        padding: 20,
     },
 
 
