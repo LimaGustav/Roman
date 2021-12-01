@@ -128,9 +128,10 @@ const styles = StyleSheet.create({
     inputLogin: {
         width: 229,
         height: 42,
-
+        color: '#000',
         backgroundColor: 'rgba(255, 255, 255, 0.85)',
         borderRadius: 5,
+        
     },
 
     btnLogin: {

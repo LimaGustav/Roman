@@ -1,13 +1,14 @@
 import React, { Compon, Component } from 'react';
 import { FlatList, Image, ImageBackground, StatusBar, StyleSheet, Text, View } from 'react-native';
 
-import api from './services/api'
+import api from '../services/api';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const bottomTab = createBottomTabNavigator();
 
 
 import Projetos from './ListaProjeto'
+import Cadastro from './Cadastro';
 
 
 
@@ -31,7 +32,7 @@ export default class Main extends Component {
                   />
                 )
               }
-              if (route.name === 'Cadastrar') {
+              if (route.name === 'Cadastro') {
                 return (
                   <Image
                     source={require('../../assets/images/novoPLogo.png')}
@@ -58,6 +59,7 @@ export default class Main extends Component {
           )}
         >
           <bottomTab.Screen name='Projetos' component={Projetos} />
+          <bottomTab.Screen name='Cadastro' component={Cadastro} />
         </bottomTab.Navigator>
       </View>
     )

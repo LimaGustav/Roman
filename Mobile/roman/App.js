@@ -9,6 +9,7 @@ const AuthStack = createStackNavigator();
 import Login from './src/screens/Login'
 import Main from './src/screens/Main'
 import Projetos from './src/screens/ListaProjeto'
+import Cadastro from './src/screens/Cadastro';
 
 export default function Stack() {
   return (
@@ -18,13 +19,14 @@ export default function Stack() {
       />
 
       <AuthStack.Navigator
-       // initialRouteName="Login"
+       initialRouteName="Login"
         screenOptions={{
           headerShown: false,
         }}>
         <AuthStack.Screen name="Login" component={Login} />
         <AuthStack.Screen name="Main" component={Main} />
         <AuthStack.Screen name="Projetos" component={Projetos} />
+        <AuthStack.Screen name="Cadastro" component={Cadastro} />
       </AuthStack.Navigator>
     </NavigationContainer>
   );
