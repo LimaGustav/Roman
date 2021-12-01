@@ -4,15 +4,17 @@ import { FlatList, Image, ImageBackground, StatusBar, StyleSheet, Text, View } f
 import api from './services/api'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+const bottomTab = createBottomTabNavigator();
+
+
 import Projetos from './ListaProjeto'
 
-const bottomTab = createBottomTabNavigator();
 
 
 export default class Main extends Component {
   render() {
     return (
-      <View>
+      <View style={styles.main}>
         <StatusBar
           hidden={false} />
 
@@ -25,7 +27,7 @@ export default class Main extends Component {
                 return (
                   <Image
                     source={require('../../assets/images/projetoLogo.png')}
-                    // style={styles.tabBarIcon}
+                  style={styles.tabBarIcon}
                   />
                 )
               }
@@ -33,7 +35,7 @@ export default class Main extends Component {
                 return (
                   <Image
                     source={require('../../assets/images/novoPLogo.png')}
-                    // style={styles.tabBarIcon}
+                  style={styles.tabBarIcon}
                   />
                 )
               }
@@ -47,19 +49,32 @@ export default class Main extends Component {
               // }
             },
 
-            headerShadow: false,
+            headerShown: false,
             tabBarShowLabel: false,
-            tabBarActiveBackgroundColor: '#B727FF',
-            tabBarInactiveBackgroundColor: '#DD99FF',
+            tabBarActiveBackgroundColor: '#fff ',
+            tabBarInactiveBackgroundColor: '#361264',
             tabBarStyle: { height: 50 }
           }
           )}
-          
-          />
-
-          <bottomTab.Screen name='Projetos' component={Projetos}/>
+        >
+          <bottomTab.Screen name='Projetos' component={Projetos} />
+        </bottomTab.Navigator>
       </View>
     )
   }
-}
+};
+
+const styles = StyleSheet.create({
+  // conteúdo da main
+  main: {
+    flex: 1,
+    backgroundColor: '#F1F1F1'
+  },
+   // estilo dos ícones da tabBar
+   tabBarIcon: {
+    width: 40,
+    height: 40,
+    tintColor: '#361264'
+  }
+});
 

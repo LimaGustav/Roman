@@ -16,11 +16,13 @@ import api from '../services/api'
 import { useNavigation } from '@react-navigation/core';
 
 
+
 export default function Login(){
 
-    const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
+    const [email, setEmail] = useState('saulo@gmail.com')
+    const [senha, setSenha] = useState('saulo123')
     const navigation = new useNavigation();
+       
 
     realizarLogin = async () => {
         try {
@@ -34,12 +36,11 @@ export default function Login(){
             await AsyncStorage.setItem('userToken', token);
     
             if (resposta.status == 200) {
-                console.warn(token)
                 navigation.navigate('Main')
             }
             
         } catch (error) {
-            console.warn('aqui')
+            console.warn('erro')
         }
     }
 

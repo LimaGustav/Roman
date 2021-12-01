@@ -8,6 +8,7 @@ const AuthStack = createStackNavigator();
 
 import Login from './src/screens/Login'
 import Main from './src/screens/Main'
+import Projetos from './src/screens/ListaProjeto'
 
 export default function Stack() {
   return (
@@ -23,6 +24,7 @@ export default function Stack() {
         }}>
         <AuthStack.Screen name="Login" component={Login} />
         <AuthStack.Screen name="Main" component={Main} />
+        <AuthStack.Screen name="Projetos" component={Projetos} />
       </AuthStack.Navigator>
     </NavigationContainer>
   );
