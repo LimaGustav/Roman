@@ -14,22 +14,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/core';
 
 import api from '../services/api'
-import { useNavigation } from '@react-navigation/core';
-
 
 
 export default function Login(){
 
-<<<<<<< HEAD
-    const [email, setEmail] = useState('adm@gmail.com');
-    const [senha, setSenha] = useState('adm123');
-    const navigation = new useNavigation();
-=======
     const [email, setEmail] = useState('saulo@gmail.com')
     const [senha, setSenha] = useState('saulo123')
     const navigation = new useNavigation();
        
->>>>>>> e656d19e2b3b2502a94558c36ad51812b69fe890
 
     realizarLogin = async () => {
         try {
@@ -39,7 +31,6 @@ export default function Login(){
             })
     
             if (resposta.status == 200) {
-<<<<<<< HEAD
                 // console.warn(token)
                 // Redireciona
                 const token = resposta.data.token;
@@ -50,13 +41,6 @@ export default function Login(){
             
         } catch (error) {
             console.warn(error)
-=======
-                navigation.navigate('Main')
-            }
-            
-        } catch (error) {
-            console.warn('erro')
->>>>>>> e656d19e2b3b2502a94558c36ad51812b69fe890
         }
     }
 
