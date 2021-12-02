@@ -28,14 +28,14 @@ export default class Main extends Component {
                 return (
                   <Image
                     source={require('../../assets/images/projetoLogo.png')}
-                  style={styles.tabBarIcon}
+                  style={styles.tabBarIconProjeto}
                   />
                 )
               }
               if (route.name === 'Cadastro') {
                 return (
                   <Image
-                    source={require('../../assets/images/novoPLogo.png')}
+                    source={require('../../assets/images/iconNovoProjeto.png')}
                   style={styles.tabBarIcon}
                   />
                 )
@@ -52,7 +52,6 @@ export default class Main extends Component {
 
             headerShown: false,
             tabBarShowLabel: false,
-            tabBarActiveBackgroundColor: '#ffffff ',
             tabBarInactiveBackgroundColor: '#C4C4C4',
             tabBarStyle: { height: 50 }
           }
@@ -74,6 +73,12 @@ const styles = StyleSheet.create({
   },
    // estilo dos ícones da tabBar
    tabBarIcon: {
+    width: 60,
+    height: 40,
+    tintColor: '#361264'
+  },
+
+  tabBarIconProjeto: {
     width: 40,
     height: 40,
     tintColor: '#361264'

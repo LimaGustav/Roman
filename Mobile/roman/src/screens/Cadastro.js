@@ -32,17 +32,22 @@ export default function Cadastro() {
                 descricao: descricao
             }
 
-            console.warn(idTema)
-            console.warn(tituloProjeto)
-            console.warn(descricao)
+            // console.warn(idTema)
+            // console.warn(tituloProjeto)
+            // console.warn(descricao)
+            // console.warn(data)
 
-            const resposta = await api.post('/cadastro', {data},
+            const resposta = await api.post('/Projetos', data,
                 {
                     headers: {
-                        Authorization: 'Bearer ' + token,
+                        Authorization: 'Bearer ' + token
                     },
                 },
             );
+
+            // console.warn(resposta)
+
+
             if (resposta.status == 201) {
                 console.warn('Cadastro realizado com sucesso.');
             } else {
