@@ -32,7 +32,11 @@ export default function Cadastro() {
                 descricao: descricao
             }
 
-            const resposta = await api.post('/cadastro', data,
+            console.warn(idTema)
+            console.warn(tituloProjeto)
+            console.warn(descricao)
+
+            const resposta = await api.post('/cadastro', {data},
                 {
                     headers: {
                         Authorization: 'Bearer ' + token,
@@ -64,7 +68,7 @@ export default function Cadastro() {
                 setListaTema(resposta.data)
             }
         } catch (error) {
-            console.warn(erro)
+            console.warn(error)
         }
     }
 
@@ -92,13 +96,17 @@ export default function Cadastro() {
                             onValueChange={(itemValue) => setIdTema(itemValue)}
                             placeholderTextColor='rgba(9, 9, 9, 0.5)'
                             style={styles.select}
-                            
+
 
                         >
-                            <FlatList
-                            data={this.state.listaProjetos}
-                            keyExtractor={item => item.idProjeto}
-                            renderItem={this.renderItem} />
+                            <Picker.Item label="Selecione um Tema" value={null} />
+                            {
+                                listaTema.map(item => {
+                                    return (
+                                        <Picker.Item key={item.idTema} label={item.titulo} value={item.idTema} />
+                                    )
+                                })
+                            }
                         </Picker>
 
                         <TextInput
@@ -134,10 +142,6 @@ export default function Cadastro() {
 
         </ImageBackground>
 
-    )
-
-    renderItem = ({item}) => (
-        
     )
 }
 

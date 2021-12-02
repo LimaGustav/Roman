@@ -52,8 +52,8 @@ export default class Main extends Component {
 
             headerShown: false,
             tabBarShowLabel: false,
-            tabBarActiveBackgroundColor: '#fff ',
-            tabBarInactiveBackgroundColor: '#361264',
+            tabBarActiveBackgroundColor: '#ffffff ',
+            tabBarInactiveBackgroundColor: '#C4C4C4',
             tabBarStyle: { height: 50 }
           }
           )}
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   // conteúdo da main
   main: {
     flex: 1,
-    backgroundColor: '#F1F1F1'
+    // backgroundColor: '#F1F1F1'
   },
    // estilo dos ícones da tabBar
    tabBarIcon: {

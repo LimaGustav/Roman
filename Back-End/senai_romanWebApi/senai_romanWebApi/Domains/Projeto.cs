@@ -8,8 +8,7 @@ namespace senai_romanWebApi.Domains
 {
     public partial class Projeto
     {
-        public short IdProjeto { get; set; }
-        [Required(ErrorMessage = "Projeto atrelado a nenhum usuário")]
+        public short IdProjeto { get; set; }        
         public short? IdUsuario { get; set; }
         [Required(ErrorMessage = "Necessário informar o tema!")]
         public byte? IdTema { get; set; }
