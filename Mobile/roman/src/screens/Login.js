@@ -14,12 +14,22 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/core';
 
 import api from '../services/api'
+import { useNavigation } from '@react-navigation/core';
+
+
 
 export default function Login(){
 
+<<<<<<< HEAD
     const [email, setEmail] = useState('adm@gmail.com');
     const [senha, setSenha] = useState('adm123');
     const navigation = new useNavigation();
+=======
+    const [email, setEmail] = useState('saulo@gmail.com')
+    const [senha, setSenha] = useState('saulo123')
+    const navigation = new useNavigation();
+       
+>>>>>>> e656d19e2b3b2502a94558c36ad51812b69fe890
 
     realizarLogin = async () => {
         try {
@@ -29,6 +39,7 @@ export default function Login(){
             })
     
             if (resposta.status == 200) {
+<<<<<<< HEAD
                 // console.warn(token)
                 // Redireciona
                 const token = resposta.data.token;
@@ -39,6 +50,13 @@ export default function Login(){
             
         } catch (error) {
             console.warn(error)
+=======
+                navigation.navigate('Main')
+            }
+            
+        } catch (error) {
+            console.warn('erro')
+>>>>>>> e656d19e2b3b2502a94558c36ad51812b69fe890
         }
     }
 
@@ -66,7 +84,9 @@ export default function Login(){
                         keyboardType="email-address"
                         onChangeText={(campo) => setEmail(campo)}
                         value={email}
-                        style={styles.inputLogin}>
+                        placeholderTextColor='rgba(9, 9, 9, 0.5)'
+                        style={styles.inputLogin}
+                        >
                         </TextInput>
 
                         <TextInput
@@ -74,6 +94,7 @@ export default function Login(){
                         keyboardType="default"
                         onChangeText={(campo) => setSenha(campo)}
                         value={senha}
+                        placeholderTextColor='rgba(9, 9, 9, 0.5)'
                         style={styles.inputLogin}
                         secureTextEntry={true}>
                         </TextInput>
@@ -123,11 +144,10 @@ const styles = StyleSheet.create({
     inputLogin: {
         width: 229,
         height: 42,
-
+        color: '#000',
         backgroundColor: 'rgba(255, 255, 255, 0.85)',
         borderRadius: 5,
-
-        placeholderTextColor: 'rgba(9, 9, 9, 0.5)'
+        
     },
 
     btnLogin: {

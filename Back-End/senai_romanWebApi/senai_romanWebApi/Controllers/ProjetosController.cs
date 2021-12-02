@@ -6,6 +6,7 @@ using senai_roman_WebApi.Repositories;
 using senai_romanWebApi.Domains;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -44,6 +45,8 @@ namespace senai_romanWebApi.Controllers
         {
             try
             {
+                novoProjeto.IdUsuario = Convert.ToInt16(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+
                 _projetoRepository.Cadastrar(novoProjeto);
 
                 return StatusCode(201);

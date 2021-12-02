@@ -4,6 +4,12 @@
         <name>senai_romanWebApi</name>
     </assembly>
     <members>
+        <member name="M:senai_romanWebApi.Interfaces.ITemaRepository.ListarTodos">
+            <summary>
+            Listar todos os temas
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:senai_roman_WebApi.Interfaces.IProjetoRepository.ListarTodos">
             <summary>
             Lista todos os projetos
