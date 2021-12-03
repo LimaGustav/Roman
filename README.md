@@ -11,3 +11,5 @@
 <h4>Nayara Escudeiro (GitHub:escudeiro777) </h4>
 
 <h4>Edson Junior (GitHub: EdsonJunior04) </h4>
+
+<img class="med-8x6" alt="Education Icon after effects animation gif animated intercative icon animation gif icon artwork education icon design" width="768" height="579" data-id="10921351" data-optimize-for-bots="true" skip_resize="true" srcset="https://cdn.dribbble.com/users/2486875/screenshots/5534832/media/0c5c028bd0fd62476e42170bb59a4f43.gif 300w, https://cdn.dribbble.com/users/2486875/screenshots/5534832/media/0c5c028bd0fd62476e42170bb59a4f43.gif 400w, https://cdn.dribbble.com/users/2486875/screenshots/5534832/media/0c5c028bd0fd62476e42170bb59a4f43.gif 600w, https://cdn.dribbble.com/users/2486875/screenshots/5534832/media/0c5c028bd0fd62476e42170bb59a4f43.gif 800w" src="https://cdn.dribbble.com/users/2486875/screenshots/5534832/media/0c5c028bd0fd62476e42170bb59a4f43.gif" sizes="(max-width: 919px) 100vw, (min-width: 920px) and (max-width: 1200px) 74vw, 1172px" rel="preload" as="image">
