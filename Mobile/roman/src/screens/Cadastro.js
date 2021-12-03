@@ -53,6 +53,9 @@ export default function Cadastro() {
             } else {
                 console.warn('Falha ao realizar o cadastro.')
             }
+            setDescricao('');
+            setIdTema(0);
+            setTituloProjeto('');
         }
         catch (error) {
             console.warn(error);

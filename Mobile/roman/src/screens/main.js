@@ -17,7 +17,9 @@ export default class Main extends Component {
     return (
       <View style={styles.main}>
         <StatusBar
-          hidden={false} />
+          hidden={false}
+          backgroundColor={'#6A518C'}
+           />
 
         <bottomTab.Navigator
           initialRouteName='Projetos'

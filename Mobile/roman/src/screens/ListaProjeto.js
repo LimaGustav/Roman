@@ -1,5 +1,5 @@
 import React, { Compon, Component } from 'react';
-import { FlatList, Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import api from '../services/api'
 
@@ -50,10 +50,14 @@ export default class ListaProjeto extends Component {
 
 
                 <View style={styles.container}>
-                    <Image
-                        source={require('../../assets/images/logoLoginPuro.png')}
-                        style={styles.logoProjeto}
-                    />
+                    <TouchableOpacity
+                    onPress={this.buscarProjetos}
+                    >
+                        <Image
+                            source={require('../../assets/images/logoLoginPuro.png')}
+                            style={styles.logoProjeto}
+                        />
+                    </TouchableOpacity>
 
 
                     <View style={styles.containerFlatList}>
@@ -120,23 +124,25 @@ const styles = StyleSheet.create({
     },
 
     containerFlatList: {
-        flex: 1,
+        flex: 1, 
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginTop: 20
     },
 
-    teste:{
+    teste: {
         alignItems: 'center'
     },
 
     mainBodyContent: {
-        flex: 1,
+        // flex: 1,
         justifyContent: 'space-around',
     },
 
     card: {
         // alignItems: 'center',
-        width: '85%'
+        width: '85%',
+        marginBottom: 30
     },
 
     tituloCard: {
