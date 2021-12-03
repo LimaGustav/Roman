@@ -6,8 +6,8 @@
 
 <h2>Feito por:</h2>
 
-<h3>Gustavo Lima (GitHub:LimaGustav)</h3>
+<h4>Gustavo Lima (GitHub:LimaGustav)</h4>
 
-<h3>Nayara Escudeiro (GitHub:escudeiro777) </h3>
+<h4>Nayara Escudeiro (GitHub:escudeiro777) </h4>
 
-<h3>Edson Junior (GitHub: EdsonJunior04) </h3>
+<h4>Edson Junior (GitHub: EdsonJunior04) </h4>
